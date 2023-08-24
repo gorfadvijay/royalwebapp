@@ -5,7 +5,7 @@ function Newslatter() {
   const latitude = -37.7749;
   const longitude = -122.4194;
   return (
-    <div class="w-full mt-[8rem]">
+    <div class="w-full mt-[8rem]" id="Newslatter">
       <div class="relative overflow-hidden scursor-pointer">
         <img
           class="object-cover w-full h-screen md:h-[70vh] "

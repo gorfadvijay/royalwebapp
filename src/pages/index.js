@@ -13,7 +13,7 @@ import Contact from "./Contact/Contact";
 import Form from "@/Components/FormComp/Form";
 import Newslatter from "./NewsLatter/Newslatter";
 import Footer from "@/Components/Footer";
-
+import Global from "./Global/Global"
 export default function index() {
   const [isOpen, setIsOpen] = useState(false);
   const [showNav, setShowNav] = useState(false);
@@ -46,6 +46,7 @@ export default function index() {
       <Values/>
       <Clients/>
       <Director/>
+      <Global/>
       <Contact/>
     <Newslatter/>
     <Footer/>

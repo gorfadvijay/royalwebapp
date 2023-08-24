@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 
 function Mission() {
   return (
-    <div className="relative -mt-[25rem] md:-mt-[20rem]" id="Mission">
+    <div className="relative -mt-[25rem]  md:-mt-[20rem]" id="Mission">
       <div className="md:block hidden absolute rounded-r-full  bg-[#2F6DA3] b work  md:w-[250px] max-h-[240px] top-[0%] left-0">
         <div className="flex justify-end mx-auto py-10 items-center px-5">
           <img

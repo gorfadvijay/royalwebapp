@@ -3,9 +3,9 @@ import React from "react";
 
 const Contact = () => {
   return (
-    <div>
+    <div id="Contact">
       {" "}
-      <div class="w-full relative ">
+      <div class="w-full relative " >
         <div class="flex  flex-wrap lg:flex-row   relative  md:mt-[8rem] md:gap-14">
           <div className="md:flex hidden  justify-center items-center rounded-r-full  bg-[#2F6DA3] b work  md:w-[390px] h-[140px] w-full sm:w-full "></div>
           <div className="md:flex md:flex-row flex-col md:mt-0 mt-[2rem]    justify-center md:text-start items-start   text-primary relative">
