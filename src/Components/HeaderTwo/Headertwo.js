@@ -1,20 +1,30 @@
 // import Signup from "../Signup/Signup";
+import Dropdown from "@/atoms/Dropdown";
 import React, { useState, useEffect } from "react";
 import { AiOutlineCloseCircle, AiOutlineMenu } from "react-icons/ai";
 import { Link as LinkScroll } from "react-scroll";
-function Header(props) {
+function Headertwo(props) {
   const [activeLink, setActiveLink] = useState(null);
   const [scrollActive, setScrollActive] = useState(false);
-  
+  const [isOpen, setIsOpen] = useState(false);
+  const [showNav, setShowNav] = useState(false);
 
+  const openModal = () => {
+    setIsOpen(true);
+    setShowNav(false);
+  };
+  const CloseModal = () => {
+    setIsOpen(false);
+  };
+  const onMoboClicks = () => {
+    setShowNav(!showNav);
+  };
   useEffect(() => {
     window.addEventListener("scroll", () => {
       setScrollActive(window.scrollY > 20);
     });
   }, []);
-  const onMoboClick = () => {
-    props.onMoboClicks();
-  };
+  
 
   return (
     <>
@@ -73,7 +83,7 @@ function Header(props) {
                   </LinkScroll>
                 </div>
 
-                <div className="text-[18px] font-medium leading-[22px] text-black mx-4 cursor-pointer">
+                <div className="text-[18px] font-medium leading-[22px] text-black mx-1 cursor-pointer">
                   <LinkScroll
                     activeClass="active"
                     to="Mission"
@@ -94,7 +104,11 @@ function Header(props) {
                     About
                   </LinkScroll>
                 </div>
-                <div className="text-[18px] font-medium leading-[22px] text-black mx-4 cursor-pointer">
+                {/* Dropdown */}
+                <div className="text-[18px] font-medium leading-[22px] text-black cursor-pointer">
+           <Dropdown/> 
+                </div>
+                <div className="text-[18px] font-medium leading-[22px] text-black mx-1 cursor-pointer">
                   <LinkScroll
                     activeClass="active"
                     to="Global"
@@ -115,7 +129,7 @@ function Header(props) {
                     Our Ventures
                   </LinkScroll>
                 </div>
-                <div className="text-[18px] font-medium leading-[22px] text-black mx-4 cursor-pointer">
+                <div className="text-[18px] font-medium leading-[22px] text-black mx-1 cursor-pointer">
                   <LinkScroll
                     activeClass="active"
                     to="Clients"
@@ -137,7 +151,7 @@ function Header(props) {
                   </LinkScroll>
                 </div>
 
-                <div className="text-[18px] font-medium leading-[22px] text-black mx-4 cursor-pointer">
+                <div className="text-[18px] font-medium leading-[22px] text-black mx-1 cursor-pointer">
                   <LinkScroll
                     activeClass="active"
                     to="Team"
@@ -158,7 +172,7 @@ function Header(props) {
                     Team
                   </LinkScroll>
                 </div>
-                <div className="text-[18px] font-medium leading-[22px] text-black mx-4 cursor-pointer">
+                <div className="text-[18px] font-medium leading-[22px] text-black mx-1 cursor-pointer">
                   <LinkScroll
                     activeClass="active"
                     to="Careers"
@@ -179,7 +193,7 @@ function Header(props) {
                     Careers
                   </LinkScroll>
                 </div>
-                <div className="text-[18px] font-medium leading-[22px] text-black mx-4 cursor-pointer">
+                <div className="text-[18px] font-medium leading-[22px] text-black mx-1 cursor-pointer">
                   <LinkScroll
                     activeClass="active"
                     to="Newslatter"
@@ -200,7 +214,7 @@ function Header(props) {
                     HelpDesk
                   </LinkScroll>
                 </div>
-                <div className="text-[18px]  font-medium leading-[22px] text-black mx-4 cursor-pointer border-[#2F6DA3] border-solid border-[1px] py-[1px]  px-[3px]  rounded-[5px] md:flex hidden text-[18px] font-medium leading-[22px] text-black cursor-pointer  text-center">
+                <div className="text-[18px]  font-medium leading-[22px] text-black mx-1 cursor-pointer border-[#2F6DA3] border-solid border-[1px] py-[1px]  px-[3px]  rounded-[5px] md:flex hidden text-[18px] font-medium leading-[22px] text-black cursor-pointer  text-center">
                   <LinkScroll
                     activeClass="active"
                     to="Contact"
@@ -226,7 +240,7 @@ function Header(props) {
                 <a href="https://api.whatsapp.com/send?phone=9687338429&text=Hello%20there!">
                   <img
                     src="./assets/images/whatsapp.png  "
-                    className="h-[2rem] w-[2rem] mx-4"
+                    className="h-[2rem] w-[2rem] mx-1"
                   />
                 </a>
 
@@ -234,13 +248,13 @@ function Header(props) {
                   <a href="https://api.whatsapp.com/send?phone=9687338429&text=Hello%20there!">
                     <img
                       src="./assets/images/whatsapp.png  "
-                      className="h-[2rem] w-[2rem] mx-4"
+                      className="h-[2rem] w-[2rem] mx-1"
                     />
                   </a>
 
-                  <div onClick={onMoboClick}>
+                  <div onClick={props.onMoboClick}>
                     {" "}
-                    {props.showNav ? (
+                    {showNav ? (
                       <AiOutlineCloseCircle size={24} />
                     ) : (
                       <AiOutlineMenu size={24} />
@@ -251,7 +265,7 @@ function Header(props) {
 
               <div
                 className={
-                  props.showNav
+                  showNav
                     ? "fixed top-[4rem] left-0 bg-[#1F0048] w-full ease-in-out duration-500 z-[1000]"
                     : "fixed top-[-100%]"
                 }
@@ -290,7 +304,7 @@ function Header(props) {
                       offset={-100}
                       onSetActive={() => {
                         setActiveLink("WhoWeAre");
-                        props.setShowNav(false);
+                        setShowNav(false);
                       }}
                       className={
                         "px-4 py-2 Workcursor-pointer animation-hover inline-block relative" +
@@ -313,7 +327,7 @@ function Header(props) {
                       duration={500}
                       onSetActive={() => {
                         setActiveLink("Our Ventures");
-                        props.setShowNav(false);
+                        setShowNav(false);
                       }}
                       className={
                         "px-4 py-2 Workcursor-pointer animation-hover inline-block relative" +
@@ -339,7 +353,7 @@ function Header(props) {
                       duration={500}
                       onSetActive={() => {
                         setActiveLink("Client");
-                        props.setShowNav(false);
+                        setShowNav(false);
                       }}
                       className={
                         "px-4 py-2 Workcursor-pointer animation-hover inline-block relative" +
@@ -363,7 +377,7 @@ function Header(props) {
                       duration={500}
                       onSetActive={() => {
                         setActiveLink("Contact");
-                        props.setShowNav(false);
+                        setShowNav(false);
                       }}
                       className={
                         "px-4 py-2 Workcursor-pointer animation-hover inline-block relative" +
@@ -379,7 +393,7 @@ function Header(props) {
                     {" "}
                     <button
                       className="font-bold border-solid border-[1px] py-2 my-2 px-6 rounded-md border-white"
-                      onClick={props.openModal}
+                      onClick={openModal}
                     >
                       Get Started
                     </button>
@@ -388,13 +402,11 @@ function Header(props) {
               </div>
             </div>
           </div>
-        
         </div>
-        
       </div>
-      {/* {props.isOpen && <Signup CloseModal={props.CloseModal} />} */}
+      {/* {isOpen && <Signup CloseModal={CloseModal} />} */}
     </>
   );
 }
 
-export default Header;
+export default Headertwo;

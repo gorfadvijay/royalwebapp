@@ -2,8 +2,7 @@ import React from "react";
 import { Map, GoogleApiWrapper, Marker } from "google-maps-react";
 import MyComponent from "@/Components/MyComponent";
 function Newslatter() {
-  const latitude = -37.7749;
-  const longitude = -122.4194;
+ 
   return (
     <div class="w-full mt-[8rem]" id="Newslatter">
       <div class="relative overflow-hidden scursor-pointer">
@@ -47,18 +46,7 @@ function Newslatter() {
         {/* <div className="">
           <img src="./assets/images/map.png" className="h-auto w-auto " />
         </div> */}
-      <div style={{ width: '100%', height: '500px' }}>
-        <iframe
-          title="Google Map"
-          width="100%"
-          height="100%"
-          frameBorder="0"
-          src={`https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d0!2d${longitude}!3d${latitude}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzjCsDA5JzQwLjQiTiAxMjLCsDA3JzIzLjYiVw!5e0!3m2!1sen!2sus!4v1629784646946!5m2!1sen!2sus`}
-          allowFullScreen=""
-          aria-hidden="false"
-          tabIndex="0"
-        ></iframe>
-      </div>
+  
       </div>
     </div>
   );

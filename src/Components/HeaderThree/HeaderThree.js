@@ -1,20 +1,30 @@
 // import Signup from "../Signup/Signup";
+import Dropdown from "@/atoms/Dropdown";
 import React, { useState, useEffect } from "react";
 import { AiOutlineCloseCircle, AiOutlineMenu } from "react-icons/ai";
 import { Link as LinkScroll } from "react-scroll";
-function Header(props) {
+function HeaderThree(props) {
   const [activeLink, setActiveLink] = useState(null);
   const [scrollActive, setScrollActive] = useState(false);
-  
+  const [isOpen, setIsOpen] = useState(false);
+  const [showNav, setShowNav] = useState(false);
 
+  const openModal = () => {
+    setIsOpen(true);
+    setShowNav(false);
+  };
+  const CloseModal = () => {
+    setIsOpen(false);
+  };
+  const onMoboClicks = () => {
+    setShowNav(!showNav);
+  };
   useEffect(() => {
     window.addEventListener("scroll", () => {
       setScrollActive(window.scrollY > 20);
     });
   }, []);
-  const onMoboClick = () => {
-    props.onMoboClicks();
-  };
+  
 
   return (
     <>
@@ -30,7 +40,7 @@ function Header(props) {
         <div className='absolute w-full h-full top-0 left-0'></div>
         <div className='absolute top-0 w-full h-full  flex flex-col justify-center items-center text-center text-white text-[56px]'><h1>Video of Royal Group</h1></div>
     </div> */}
-        <div class="w-full ">
+        {/* <div class="w-full ">
         <div class="relative overflow-hidden scursor-pointer">
           <img
             class="object-cover w-full h-screen md:h-[40vh] "
@@ -40,16 +50,18 @@ function Header(props) {
 
         
         </div>
-      </div>
+      </div> */}
         <div>
           <div className="md:max-w-[1920px] w-full bg-white md:px-10 px-5 mx-auto py-3">
             <div className="flex  justify-between  md:items-center  ">
               <div className="flex justify-start items-start">
-                <img
-                  src="./assets/images/RoyalLogo.png  "
-                  className="h-auto w-[8rem] "
-                />
+              <div className=" text-[18px] font-medium leading-[22px]  text-blue cursor-pointer">
+              
+                  ROYAL IMP AND EXP CO. LIMITED
+                
+                </div>
               </div>
+             
               <div className=" md:flex hidden ">
                 <div className=" text-[18px] font-medium leading-[22px]  cursor-pointer">
                   <LinkScroll
@@ -93,6 +105,10 @@ function Header(props) {
                   >
                     About
                   </LinkScroll>
+                </div>
+                {/* Dropdown */}
+                <div className="text-[18px] font-medium leading-[22px] text-black cursor-pointer">
+           <Dropdown/> 
                 </div>
                 <div className="text-[18px] font-medium leading-[22px] text-black mx-4 cursor-pointer">
                   <LinkScroll
@@ -238,9 +254,9 @@ function Header(props) {
                     />
                   </a>
 
-                  <div onClick={onMoboClick}>
+                  <div onClick={props.onMoboClick}>
                     {" "}
-                    {props.showNav ? (
+                    {showNav ? (
                       <AiOutlineCloseCircle size={24} />
                     ) : (
                       <AiOutlineMenu size={24} />
@@ -251,7 +267,7 @@ function Header(props) {
 
               <div
                 className={
-                  props.showNav
+                  showNav
                     ? "fixed top-[4rem] left-0 bg-[#1F0048] w-full ease-in-out duration-500 z-[1000]"
                     : "fixed top-[-100%]"
                 }
@@ -290,7 +306,7 @@ function Header(props) {
                       offset={-100}
                       onSetActive={() => {
                         setActiveLink("WhoWeAre");
-                        props.setShowNav(false);
+                        setShowNav(false);
                       }}
                       className={
                         "px-4 py-2 Workcursor-pointer animation-hover inline-block relative" +
@@ -313,7 +329,7 @@ function Header(props) {
                       duration={500}
                       onSetActive={() => {
                         setActiveLink("Our Ventures");
-                        props.setShowNav(false);
+                        setShowNav(false);
                       }}
                       className={
                         "px-4 py-2 Workcursor-pointer animation-hover inline-block relative" +
@@ -339,7 +355,7 @@ function Header(props) {
                       duration={500}
                       onSetActive={() => {
                         setActiveLink("Client");
-                        props.setShowNav(false);
+                        setShowNav(false);
                       }}
                       className={
                         "px-4 py-2 Workcursor-pointer animation-hover inline-block relative" +
@@ -363,7 +379,7 @@ function Header(props) {
                       duration={500}
                       onSetActive={() => {
                         setActiveLink("Contact");
-                        props.setShowNav(false);
+                        setShowNav(false);
                       }}
                       className={
                         "px-4 py-2 Workcursor-pointer animation-hover inline-block relative" +
@@ -379,7 +395,7 @@ function Header(props) {
                     {" "}
                     <button
                       className="font-bold border-solid border-[1px] py-2 my-2 px-6 rounded-md border-white"
-                      onClick={props.openModal}
+                      onClick={openModal}
                     >
                       Get Started
                     </button>
@@ -388,13 +404,11 @@ function Header(props) {
               </div>
             </div>
           </div>
-        
         </div>
-        
       </div>
-      {/* {props.isOpen && <Signup CloseModal={props.CloseModal} />} */}
+      {/* {isOpen && <Signup CloseModal={CloseModal} />} */}
     </>
   );
 }
 
-export default Header;
+export default HeaderThree;

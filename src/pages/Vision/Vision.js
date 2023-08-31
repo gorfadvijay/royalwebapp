@@ -45,7 +45,7 @@ function Vision() {
           </div>
         </div>
       </div>
-      <div className="w-full lg:max-w-[1400px] md:px-10 mx-auto relative md:my-20 px-5">
+      <div className="w-full md:max-w-[1920px] md:px-10 mx-auto relative md:my-20 px-5">
         <div className="md:flex ">
           <div className="flex flex-col justify-center md:text-center items-center  mx-auto text-primary relative">
             {/* <div className="flex flex-col">
